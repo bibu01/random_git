@@ -1,18 +1,14 @@
 import requests
 
 
-urlt = 'https://dota2.ru/img/heroes/abaddon/m_icon.jpg'
-
-urlt2='axe'
-
-urls = {
+urls_s = [
     'abaddon',
     'alchemist',
     'axe',
     'beastmaster',
     'brewmaster',
     'bristleback',
-    'centaur_warruner',
+    'centaur_warrunner',
     'chaos_knight',
     'clockwerk',
     'doom',
@@ -25,7 +21,7 @@ urls = {
     'kunkka',
     'legion_commander',
     'lifestealer',
-    'lykan',
+    'lycan',
     'magnus',
     'night_stalker',
     'omniknight',
@@ -38,21 +34,20 @@ urls = {
     'tidehunter',
     'timbersaw',
     'tiny',
-    'treant_protektor',
+    'treant_protector',
     'tusk',
     'underlord',
     'undying',
-    'wraithking',
-    }
+    'wraith_king',
+    ]
 
-
-for url in urls:
+a = 0
+for url in urls_s:
+    a= a+1
     s = f'https://dota2.ru/img/heroes/{url}/m_icon.jpg'
     r = requests.get(s, stream=True)
-    a = 1
-    with open(url+'.jpg', 'bw') as f:
+    with open(str(a)+'.jpg', 'bw') as f:
         for chunk in r.iter_content(8192):
             f.write(chunk);
-    a= a+1        
 
     
